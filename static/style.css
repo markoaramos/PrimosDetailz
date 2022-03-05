@@ -1,0 +1,73 @@
+@media(min-width: 768px){
+    .news-input {
+        width: 50%;
+    }
+}
+
+.RD-Font{
+    font-family: 'Courgette', cursive;
+}
+
+#navmenu{
+    color: white;
+}
+
+.Airforce-Blue{
+    color: #5D8AA8;
+}
+
+.bg-Airforce-Blue{
+    background-color: #5D8AA8;
+}
+
+.RD-Outline {
+    -webkit-text-stroke-width: 0.4px;
+    -webkit-text-stroke-color: white;
+}
+
+.mobile-icon {
+    color: #5D8AA8;
+}
+
+.stars-icon {
+    color: #D4AF37;
+}
+
+.cash-icon {
+    color: #3D9140;
+}
+
+#interior-service {
+    color: #CD7F32;
+}
+
+#exterior-service {
+    color: #848482;
+}
+
+#all-in-one-service{
+    color: #D4AF37;
+}
+
+ul.checkmark {
+    list-style: none;
+    margin-left: 25px;
+}
+
+ul.checkmark li {
+    line-height: 1.8;
+    position: relative;
+}
+
+ul.checkmark li:before {
+    color: #3D9140;
+    content: '✓';
+    font-weight: bold;
+    left: -25px;
+    position: relative;
+}
+
+.required:after {
+    content: "*";
+    color: red;
+}
