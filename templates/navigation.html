@@ -11,6 +11,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navmenu">
             <ul class="navbar-nav ms-auto">
+                {%if user.is_authenticated%}
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="/dashboard/">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Logout</a>
+                  </li>
+                {%else%}
                 <li class="nav-item">
                     <a href="#OurWork" class="nav-link">Our Work</a>
                 </li>
@@ -26,6 +34,7 @@
                 <li class="nav-item">
                     <a href="/login" class = "nav-link">Login</a>
                 </li>
+                {%endif%}
             </ul>
         </div>
     </div>

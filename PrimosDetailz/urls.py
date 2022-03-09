@@ -20,8 +20,8 @@ from app1 import views as app1_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', app1_views.home, name='home'),
-    path('login/', app1_views.login, name='login'),
-    #path('logout/', app_views.dashboard, name = 'logout'),
-    #path('dashboard/', app1_views.dashboard, name='dashboard'),
+    path('login/', app1_views.user_login, name='user_login'),
+    path('logout/', app1_views.user_logout, name = 'user_logout'),
+    path('dashboard/', app1_views.dashboard, name='dashboard'),
     
 ]
