@@ -6,13 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {%include "bootstrap.html"%}
     <link rel="stylesheet" href="{% static 'style.css'%}" />
-    <!--script src="{%static 'dashboard.js' %}"></script-->
+    <link rel="stylesheet" href="{% static 'calendar.css'%}" />
     <title>Dashboard</title>
   </head>
   <body>
     {% include "navigation.html" %}
-    <div class="container m-5">
-      <h1>Dashboard</h1>
+    
+    <div id = "calendar-container">
+      <h1 class="p-3 text-center text-dark RD-Font">Dashboard</h1>
+      <div id="calendar-header" class ="">
+        <div id ="monthDisplay" class = "text-dark">
+        </div>
+          <div>
+          <button class = "btn bg-Airforce-Blue text-white btn-sm" id="backButton" onclick="backButton()">Back</button>
+          <button class = "btn bg-Airforce-Blue text-white btn-sm" id="nextButton" onclick="nextButton()">Next</button>
+          </div>
+        </div>
+      
+      <div id="weekdays">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div>
+
+      <div id="calendar"></div>
     </div>
+
+    <script src="{% static 'Calendar.js' %}" /></script>
   </body>
 </html>
