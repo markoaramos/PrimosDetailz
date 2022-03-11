@@ -1,9 +1,12 @@
-let nav =0;
+let nav = 0;
 let clicked = null;
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
 
 const calendar = document.getElementById('calendar');
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const newEventModal = document.getElementById('newEventModal');
+const backDrop = document.getElementById('modalBackDrop');
+const nameInput = document.getElementById('nameInput');
 
 function load() {
 
@@ -14,9 +17,8 @@ function load() {
     }
 
     const day = dt.getDate();
-    const month = dt.getMonth(); //array index: current month = 0, next month = 1, prev. month =-1
+    const month = dt.getMonth(); //array index for months
     const year = dt.getFullYear();
-
     const firstDayOfMonth = new Date(year, month, 1);
     const daysInMonth = new Date(year, month+1, 0).getDate();
     
@@ -44,12 +46,11 @@ function load() {
         //iterated past the # of padding days, then print days of week 
         if(i > paddingDays){
             daySquare.innerText = i - paddingDays;
+            daySquare.addEventListener('click', () => openModal(`${month + 1}/${i-paddingDays}/${year}`));
         }
         // i is less than # of padding days, print padding day
         else{
             daySquare.classList.add('padding');
-
-            daySquare.addEventListener('click', () => console.log('click'));
         }
         calendar.appendChild(daySquare);
     }
@@ -68,7 +69,50 @@ function nextButton(){
     load();
 }
 
+function openModal(date) {
+    clicked = date;
 
+    const eventForDay = events.find(e => e.date === clicked);
+
+    if (eventForDay){
+        console.log('Word Order already created for this day');
+    }
+    else {
+        newEventModal.style.display = 'block';
+    }
+    backDrop.style.display = 'block';
+}
+
+function saveWorkOrder(){
+
+    if(nameInput.value){
+        nameInput.classList.remove('error');
+
+        events.push({
+            date: clicked,
+            name: nameInput.value,
+        });
+
+        localStorage.setItem('events',JSON.stringify(events));
+        closeModal();
+    }
+    else{
+        nameInput.classList.add('error');
+    }
+ 
+}
+
+//function edit WorkOrder(){}
+
+
+function closeModal(){
+    nameInput.classList.remove('error');
+    newEventModal.style.display = 'none';
+    backDrop.style.display = 'none';
+    nameInput.value = '';
+    clicked = null;
+    load();
+}
 
 load();
 

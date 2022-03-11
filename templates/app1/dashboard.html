@@ -36,6 +36,17 @@
       <div id="calendar"></div>
     </div>
 
-    <script src="{% static 'Calendar.js' %}" /></script>
+    <div id="newEventModal">
+      <h4> New Work Order </h4>
+
+      <input id="nameInput" placeholder="Customer Name"/>
+
+      <button class = "btn bg-Airforce-Blue text-white btn-sm" onclick="saveWorkOrder()">Save</button>
+      <button class = "btn btn-dark text-white btn-sm" onclick="closeModal()">Cancel</button>
+    </div>
+
+    <div id = "modalBackDrop"></div>
+    
+  <script src="{% static 'Calendar.js' %}" /></script>
   </body>
 </html>
